@@ -1,10 +1,10 @@
 {
     "name": "rebangm/php-checker",
-    "description": "tools to check repository with static analysis",
+    "description": "tools which perform static analysis on PHP project",
     "authors": [
         {
-            "name": "Jean-philippe Depigny",
-            "email": "jdepigny.ext@orange.com"
+            "name": "Rebangm",
+            "email": "rebangm@gmail.com"
         }
     ],
     "minimum-stability": "stable",
