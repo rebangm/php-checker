@@ -23,7 +23,8 @@
         "monolog/monolog": "~1.10",
         "pdepend/pdepend": "~2.0",
         "sebastian/phpcpd": "~2.0",
-        "squizlabs/php_codesniffer": "~1.5"
+        "squizlabs/php_codesniffer": "~1.5",
+        "jakub-onderka/php-parallel-lint": "0.7"
     },
     "autoload": {
         "psr-4": {

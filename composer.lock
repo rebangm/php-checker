@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "50c6c8ad349350d12f066e1ce8d7210e",
+    "hash": "e296e7b82cd8735818e4ee7d61d658db",
     "packages": [
         {
             "name": "fabpot/php-cs-fixer",
@@ -53,6 +53,54 @@
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
             "time": "2014-08-02 05:48:15"
+        },
+        {
+            "name": "jakub-onderka/php-parallel-lint",
+            "version": "v0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JakubOnderka/PHP-Parallel-Lint.git",
+                "reference": "233fc40f62cffef17017b284082341381bfdec7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Parallel-Lint/zipball/233fc40f62cffef17017b284082341381bfdec7e",
+                "reference": "233fc40f62cffef17017b284082341381bfdec7e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "jakub-onderka/php-console-highlighter": "~0.3",
+                "nette/tester": "~1.1"
+            },
+            "suggest": {
+                "jakub-onderka/php-console-highlighter": "Highlight syntax in code snippet"
+            },
+            "bin": [
+                "parallel-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Onderka",
+                    "email": "jakub.onderka@gmail.com",
+                    "homepage": "http://www.acci.cz"
+                }
+            ],
+            "description": "This tool check syntax of PHP files about 20x faster than serial check.",
+            "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
+            "time": "2014-07-14 20:59:20"
         },
         {
             "name": "monolog/monolog",
