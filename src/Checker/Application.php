@@ -22,12 +22,15 @@ class Application extends BaseApplication
     {
         error_reporting(-1);
 
-        parent::__construct('Checker-Tool',"0.1");
+        parent::__construct('Checker-Tool', "Dev");
 
         $this->add(new TestCommand());
         $this->add(new LocCommand());
         $this->add(new CopyPasteDetectorCommand());
         $this->add(new PDependCommand());
+
+        $this->checkBuildDirectory();
+
     }
 
     public function getLongVersion()
@@ -37,8 +40,11 @@ class Application extends BaseApplication
         return $version;
     }
 
-    public function Hola_la(){
-        //useless
+    public function checkBuildDirectory(){
+        $buildDirectory = __DIR__ . "/../../build/";
+        if(!(is_dir($buildDirectory) && is_writable($buildDirectory))){
+            mkdir($buildDirectory);
+        }
     }
 }
 
