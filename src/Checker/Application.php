@@ -6,6 +6,7 @@ use Rebangm\Checker\Command\TestCommand;
 use Rebangm\Checker\Command\LocCommand;
 use Rebangm\Checker\Command\PDependCommand;
 use Rebangm\Checker\Command\CopyPasteDetectorCommand;
+use Rebangm\Checker\Command\LintCommand;
 use Symfony\Component\Console;
 use Symfony\Component\Console\Application as BaseApplication;
 
@@ -36,6 +37,7 @@ class Application extends BaseApplication
         $this->add(new LocCommand());
         $this->add(new CopyPasteDetectorCommand());
         $this->add(new PDependCommand());
+        $this->add(new LintCommand());
 
         //$this->checkBuildDirectory();
 
