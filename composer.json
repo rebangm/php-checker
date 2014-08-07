@@ -27,7 +27,8 @@
         "jakub-onderka/php-parallel-lint": "0.7",
         "sebastian/phpdcd": "~1.0",
         "halleck45/php-metrics": "~0.0",
-        "symfony/filesystem": "~2.0"
+        "symfony/filesystem": "~2.0",
+        "symfony/console": "~2.0"
     },
     "autoload": {
         "psr-4": {
