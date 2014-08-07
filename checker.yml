@@ -1,0 +1,18 @@
+resultDirectory: build/
+tools:
+    phpcpd:
+        path: src/
+        names: ~
+        names-exclude: ~     # A comma-separated list of file names to exclude
+        exclude: ~           # Exclude a directory from code analysis (must be relative to source) (multiple values allowed)
+        log-pmd: ~           # Write result in PMD-CPD XML format to file
+        min-lines: ~         # Minimum number of identical lines (default: 5)
+        min-tokens: ~        # Minimum number of identical tokens (default: 70)
+    phploc:
+        names: ~             # A comma-separated list of file names to check (default: ["*.php"])
+        names-exclude: ~     # A comma-separated list of file names to exclude
+        count-tests: ~       # Count PHPUnit test case classes and test methods
+        git-repository: ~    # Collect metrics over the history of a Git repository
+        exclude: ~           # Exclude a directory from code analysis (multiple values allowed)
+        log-csv: ~           # Write result in CSV format to file
+        log-xml: ~           # Write result in XML format to file
