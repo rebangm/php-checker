@@ -3,8 +3,7 @@
 
 
 /**
- * Created by PhpStorm.
- * User: rtwf6589
+ * @author : Rebangm <rebangm@gmail.com>
  * Date: 06/08/14
  * Time: 10:40
  */
@@ -23,7 +22,7 @@ class CopyPasteDetectorCommand extends phpCpdCommand
     protected function configure()
     {
         parent::configure();
-        $this->setName("php:phpcpd")
+        $this->setName("tool:phpcpd")
             ->setDescription('Copy/Paste Detector (CPD) for PHP code.');
     }
 

@@ -3,8 +3,8 @@
 
 
 /**
- * Created by PhpStorm.
- * User: rtwf6589
+
+ * @author : Rebangm <rebangm@gmail.com>
  * Date: 06/08/14
  * Time: 10:40
  */
@@ -23,7 +23,7 @@ class LocCommand extends phpLocCommand
     protected function configure()
     {
         parent::configure();
-        $this->setName("php:phploc")
+        $this->setName("tool:phploc")
             ->setDescription('quickly measuring the size and analyzing the structure of a PHP project');
     }
 
