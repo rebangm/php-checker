@@ -14,6 +14,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -40,6 +41,9 @@ class Application extends BaseApplication
 
     }
 
+    /**
+     * @return string
+     */
     public function getLongVersion()
     {
         $version = parent::getLongVersion().' by <comment>Rebangm</comment>';
@@ -54,12 +58,32 @@ class Application extends BaseApplication
         }
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
     public function doRun(InputInterface $input, OutputInterface $output){
 
         if (true === $input->hasParameterOption(array('--configFile', '-c'))) {
             $configFile = $input->getParameterOption(array('--configFile', '-c'));
-            //if()
-            Yaml::parse(file_get_contents($configFile));
+            //if(fs->exist(path/to/file))
+            $configValues = Yaml::parse(file_get_contents($configFile));
+
+            $processor = new Processor();
+            $configuration = new Configuration();
+            try {
+                $processedConfiguration = $processor->processConfiguration(
+                    $configuration,
+                    $configValues
+                );
+
+                // configuration validated
+
+            } catch (Exception $e) {
+                // validation error
+                echo $e->getMessage() . PHP_EOL;
+            }
         }
 
         return parent::doRun($input, $output);
