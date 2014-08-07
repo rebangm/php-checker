@@ -1,7 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: jpdepigny
+ * @author : Rebangm <rebangm@gmail.com>
  * Date: 07/08/14
  * Time: 22:21
  */
@@ -14,6 +13,9 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class Configuration implements ConfigurationInterface
 {
+    /**
+     * @return TreeBuilder
+     */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
