@@ -10,27 +10,44 @@ namespace Rebangm\Checker;
 
 
 use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\Finder\Finder;
 
 class Lint {
 
-    private $sourceDirectory;
+    private $sourceDirectories;
+
+    private $files;
 
     public function __construct($sourceDirectory){
-        $this->sourceDirectory = $sourceDirectory;
+        $this->sourceDirectories = $sourceDirectory;
 
     }
 
     public function lint(){
-
-        $this->execute(__DIR__ ."/../../test/phpFileToLint.php");
+        $this->findFiles($this->sourceDirectories);
+        foreach($this->files as $file){
+            $this->execute($file->getRealpath());
+        }
     }
 
+    /**
+     * Find files with php extension
+     * @param $include
+     */
+    private function findFiles($directories){
+        $finder = new Finder();
+        $finder->in($directories);
+        $this->files = $finder->files()->name('*.php');
+    }
+
+    //TODO use proc_open to redirect std(in|out|err) to file or catch excpetion
     private function execute($file){
+        var_dump(realpath($file));
         $cmd = "php -l ". $file;
         try{
-            $output = shell_exec($cmd);
+            exec($cmd,$output);
         }catch (Exception $e){
-            echo "####" . $e->getMessage() ."####";
+            //echo "####" . $e->getMessage() ."####";
         }
         return $output;
     }

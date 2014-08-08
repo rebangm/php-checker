@@ -25,13 +25,23 @@ class LintCommand extends Command
     {
         parent::configure();
         $this->setName("tool:phplint")
-            ->setDescription('quickly measuring the size and analyzing the structure of a PHP project');
+            ->setDescription('check php syntax')
+            ->setDefinition(
+                array(
+                    new InputArgument(
+                        'directory',
+                        InputArgument::IS_ARRAY | InputArgument::REQUIRED
+                    )
+                )
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $lint = new Lint("src/");
-        $lint->lint();
-        $output->writeln("Hola");
+        if($input->hasArgument("directory")){
+            $lint = new Lint($input->getArgument("directory"));
+            $lint->lint();
+            $output->writeln("Hola");
+        }
     }
 }
