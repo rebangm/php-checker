@@ -16,7 +16,9 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-
+use Rebangm\Checker\Lint;
+use Rebangm\Checker\Lint\LintSettings;
+use JakubOnderka\PhpParallelLint;
 
 
 class ParallelLintCommand extends Command
@@ -65,15 +67,34 @@ class ParallelLintCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        try {
+            $settings = new PhpParallelLint\Settings();
+            //$output->writeln("Hola");
+            if($input->hasArgument("directory")){
+                $settings->paths = $input->getArgument("directory");
+            }
+
+            if($input->hasOption("exclude")){
+                $settings->excluded = $input->getOption("exclude");
+            }
+
+            if($input->hasOption("extension")){
+                $settings->extensions = $input->getOption("extension");
+            }
+
+            if($input->hasOption("number-jobs")){
+                $settings->parallelJobs = $input->getOption("number-jobs");
+            }
+
+            if($input->hasOption("no-colors")){
+                $settings->colors = false;
+            }
+            $manager = new PhpParallelLint\Manager;
+            $result = $manager->run($settings);
 
 
+        }catch(Exception $e){
 
-        if($input->hasArgument("directory")){
-            $output->writeln("Hola");
         }
-
-
-
-
     }
 }
